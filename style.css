@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: lightgray;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    background-color: lightblue;
+}
+
+h2 {
+    margin: auto 0 auto 20px;
+}
+
+#slidercontainer {
+    margin: 0 auto;
+}
+
+#slider_value {
+    text-align: center;
+    margin: 0;
+}
+
+#permutations {
+    display: grid;
+    row-gap: 10px;
+    column-gap: 18px;
+    padding: 1rem;
+}
+
+.permutation {
+    background-color: white;
+    width: 100%;
+    padding: 0.25rem;
+}
+
+.permutation div {
+    align-self: flex-end;
+}
