@@ -5,25 +5,29 @@ function getPermutations(array, value) {
 }
 
 function permutationUpdateDom(permutations, value) {
+    let toggleSlider = boo => document.getElementById("slider").disabled = boo;
+    $('#permutations').css({ 'grid-template-columns': `repeat(${value}, 1fr)` });
+    toggleSlider(true)
     permutations.forEach((permutation, idx) => {
-        $('#permutations').css({ 'grid-template-columns': `repeat(${value}, 1fr)` });
-        let rowHeight = '100px'
-        $('<div>').attr('id', idx).addClass('permutation').css({
-            'height': rowHeight,
-            'display': 'flex',
-            'justify-content': 'space-around',
-        }).appendTo(`#permutations`);
-
-        permutation.forEach((num, j) => addBars(num, idx, j, permutation));
+        if ($(`#${idx}`)[0] !== undefined) return;
+        setTimeout(function () {
+            $('<div>').attr('id', idx).addClass('permutation fade-in').css({
+                'height': '100px',
+                'display': 'flex',
+                'justify-content': 'space-around',
+            }).appendTo(`#permutations`);
+            permutation.forEach((num, j) => addBars(num, idx, j, permutation));
+            if (idx === permutations.length - 1) toggleSlider(false);
+        }, idx * 50);
     });
 }
 
 function addBars(num, idx, j, permutation) {
-    let color = (num  + 1) / permutation.length * 255;
+    let color = (num + 1) / permutation.length * 255;
     $('<div>').css({
         'background-color': `rgb(0, ${color}, ${color})`,
         'width': (100 / permutation.length - 5).toString() + '%',
-        'height': ((num  + 1) / permutation.length * 100).toString() + '%'
+        'height': ((num + 1) / permutation.length * 100).toString() + '%'
     }).appendTo(`#${idx}`);
 }
 

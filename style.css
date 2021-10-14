@@ -40,3 +40,17 @@ h2 {
 .permutation div {
     align-self: flex-end;
 }
+
+.fade-in {
+    animation: fade-in ease-in forwards;
+    -webkit-animation: fade-in ease-in forwards;
+    animation-duration: 0.1s;
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    25% { opacity: 0.5; }
+    50% { opacity: 0.70; }
+    75% { opacity: 0.9; }
+    100% { opacity: 1; }
+}
